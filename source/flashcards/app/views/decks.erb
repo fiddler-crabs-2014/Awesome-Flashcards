@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Decks for Boss People</h1>
+  <p>Flashie flash flash</p>
+
+  <% @decks.each do | deck | %>
+    <a href=<% "\'/deck/#{deck.id}\'" %>> <%= deck.name %> </a><br>
+  <% end %>
+
+
+</div>
