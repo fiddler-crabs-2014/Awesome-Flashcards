@@ -7,3 +7,8 @@
 th {
   text-align: left;
 }
+.container input {
+        width: 100%;
+
+  clear:both;
+}
