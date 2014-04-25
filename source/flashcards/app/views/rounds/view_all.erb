@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Welcome to Sinatra!</h1>
+  <p>Hello, world!</p>
+
+  <table>
+    <th>
+      <td style="width: 150px;">Created At</td>
+      <td style="width: 150px;">Guesses</td>
+      <td style="width: 150px;">Correct</td>
+    </th>
+    <% @rounds.each do |round| %>
+      <tr>
+        <td><%= round.created_at %></td>
+        <td><%= round.guesses.count %></td>
+        <td><%= "%.2f" % round.score %>%</td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+
+
