@@ -1,4 +1,5 @@
 class Guess < ActiveRecord::Base
   # Remember to create a migration!
-    has_many :guesses
+    has_one :round
+    belongs_to :card
 end
