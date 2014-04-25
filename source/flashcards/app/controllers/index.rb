@@ -14,14 +14,15 @@ end
 
 post '/signup' do
   User.create(username: params[:username], email: params[:email], password: params[:password])
+  flashlogger("/signup POST executed")
 end
 
 post '/signin' do
   if User.authenticate(params[:username], params[:password]) != false
-    puts("[LOG] Signin POST worked") if FLASHDEBUG
+    flashlogger("/signin POST authentication passed")
     redirect '/'
   else
-    puts("[LOG] Signin POST login_failed")  if FLASHDEBUG
+    flashlogger("/signin POST authentication failed")
     erb :signin
   end
 end
