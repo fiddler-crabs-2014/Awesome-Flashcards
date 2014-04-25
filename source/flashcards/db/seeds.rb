@@ -1,3 +1,4 @@
+require_relative 'seeds_round'
 deck = Deck.create(name: "Math Problems", genre: "Math")
 card = Card.new
 
