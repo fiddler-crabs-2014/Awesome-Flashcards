@@ -12,11 +12,15 @@ post '/signup' do
 end
 
 post '/signin' do
- if User.authenticate(params[:username], params[:password])
-  erb :index
-else
-  erb :signin
-end
+  if User.authenticate(params[:username], params[:password]) != false
+    puts("[LOG] Signin POST worked")
+    login_failed = false
+    redirect '/'
+  else
+    login_failed = true
+    puts("[LOG] Signin POST login_failed")
+    erb :signin
+  end
 end
 
 get '/signin' do
