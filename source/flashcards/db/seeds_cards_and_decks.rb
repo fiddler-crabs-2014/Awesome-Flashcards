@@ -36,4 +36,10 @@ Deck.transaction do
     card.save!
   end
 
+  deck = Deck.create(name: "State Capitals", genre: "Geography")
+  File.readlines(APP_ROOT.join('db', 'statecapitals')).each do |line|
+    card_data = line.split(",  ")
+    Card.create(question: card_data.first.chomp, answer: card_data[1].chomp, difficulty_score: 1, deck_id: deck.id)
+  end
+
 end
