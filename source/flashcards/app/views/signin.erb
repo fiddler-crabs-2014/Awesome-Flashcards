@@ -22,6 +22,9 @@
   </table>
 </div>
 <div class="container">
+  <% if @signin_failed %>
+  <h3> Invalid Password </h3>
+  <% end %>
   <h3> If you are true Ninjai, login here </h3>
 <form name="signup_form" action="/signin" method="post">
 Username: <input type="text" name="username"><br>
