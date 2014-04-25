@@ -1,13 +1,14 @@
 require_relative 'seeds_round'
+require_relative 'seeds_cards_and_decks.rb'
+
 deck = Deck.create(name: "Math Problems", genre: "Math")
 card = Card.new
 
+
+
 10.times do
-  num1,num2 = rand(10),rand(10)
-  answer = num1 + num2
-  card.question = "#{num1} + #{num2} = ?"
-  card.answer = "#{answer}"
-  card.difficulty_score = 1
-  card.deck = deck.id
-  card.save
+  fusername = Faker::Name.first_name + Faker::Name.last_name
+  femail = Faker::Internet.free_email
+  User.new(username: fusername, email: femail, password: 'lol' )
 end
+
