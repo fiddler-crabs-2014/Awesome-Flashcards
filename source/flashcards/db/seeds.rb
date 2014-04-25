@@ -1,5 +1,9 @@
-
+require_relative 'seeds_round'
 require_relative 'seeds_cards_and_decks.rb'
+
+deck = Deck.create(name: "Math Problems", genre: "Math")
+card = Card.new
+
 
 
 10.times do
