@@ -2,7 +2,6 @@ Deck.transaction do
 
   deck = Deck.create(name: "Math Problems", genre: "Math")
   card = Card.new
-  puts (card.methods - Object.methods).sort
 
   10.times do
     num1,num2 = rand(10)+1,rand(10)+1
