@@ -32,7 +32,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="529" y="351" name="user">
+</datatypes><table x="529" y="351" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -49,7 +49,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="896" y="409" name="deck">
+<table x="896" y="409" name="decks">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -63,13 +63,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="1051" y="351" name="card">
+<table x="1051" y="351" name="cards">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="deck_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="deck" row="id" />
+<default>NULL</default><relation table="decks" row="id" />
 </row>
 <row name="question" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
@@ -84,17 +84,17 @@
 <part>id</part>
 </key>
 </table>
-<table x="678" y="352" name="round">
+<table x="678" y="352" name="rounds">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="user" row="id" />
+<default>NULL</default><relation table="users" row="id" />
 </row>
 <row name="deck_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="deck" row="id" />
+<default>NULL</default><relation table="decks" row="id" />
 </row>
 <row name="target_question_count" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -103,17 +103,17 @@
 <part>id</part>
 </key>
 </table>
-<table x="894" y="243" name="guess">
+<table x="895" y="243" name="guesses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="card_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="card" row="id" />
+<default>NULL</default><relation table="cards" row="id" />
 </row>
 <row name="round_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="round" row="id" />
+<default>NULL</default><relation table="rounds" row="id" />
 </row>
 <row name="result" null="1" autoincrement="0">
 <datatype>BINARY</datatype>
