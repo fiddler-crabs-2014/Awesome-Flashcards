@@ -1,4 +1,3 @@
-require_relative '../../config/flashsettings'
 get '/' do
   if session[:user_id]
     erb :profile

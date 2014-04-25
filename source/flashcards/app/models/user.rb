@@ -1,4 +1,3 @@
-require_relative '../../config/flashsettings'
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :rounds
