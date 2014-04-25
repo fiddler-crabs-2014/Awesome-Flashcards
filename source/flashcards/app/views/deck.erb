@@ -1,10 +1,16 @@
 <div class="container">
   <h1>Your deck for a Boss Person</h1>
   <p>Flashie flash flash</p>
-  <h3> <%= @deck.name %> </h3>
+  <h2> <%= @deck.name %> </h2>
   <% @cards.each do | card | %>
-    <p> <%= card.question %> </p>
-    <p> <%= card.answer %> </p><br><br>
+    <div class="question">
+      <h4> Question: </h4>
+      <p> <%= card.question %> </p>
+    </div>
+    <div class="answer">
+      <h4> Answer: </h4>
+      <p> <%= card.answer %> </p><br><br>
+    </div>
   <% end %>
 
 

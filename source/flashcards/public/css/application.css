@@ -12,3 +12,21 @@ th {
 
   clear:both;
 }
+.question {
+
+}
+.question h4 {
+  display: inline;
+}
+
+.question p {
+  display: inline;
+}
+
+.answer h4{
+  display: inline;
+}
+
+.answer p{
+  display: inline;
+}

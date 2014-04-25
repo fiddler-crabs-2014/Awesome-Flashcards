@@ -1,20 +1,24 @@
-get '/decks'
-  @decks = Deck.all
+get '/decks' do
+  @decks = Deck.find(:all)
   erb :decks
 end
 
-get '/decks/:id'
+get '/decks/:id' do
   @deck = Deck.find(params[:id])
-  @cards = deck.cards
+  @cards = []
+  @deck.cards.each do |card|
+    @cards << card
+  end
   erb :deck
 end
 
-get '/deck'
+post '/deck' do
+
 end
 
-get '/card'
+get '/card' do
 end
 
-post '/card'
+post '/card' do
 end
 
