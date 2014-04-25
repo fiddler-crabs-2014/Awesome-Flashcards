@@ -1,7 +1,11 @@
 require_relative '../../config/flashsettings'
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  if session[:user_id]
+    erb :profile
+  else
+    # Look in app/views/index.erb
+    erb :index
+  end
 end
 
 get '/signup' do
