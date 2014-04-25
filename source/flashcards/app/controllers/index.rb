@@ -1,3 +1,4 @@
+require_relative '../../config/flashsettings'
 get '/' do
   # Look in app/views/index.erb
   erb :index
@@ -13,12 +14,10 @@ end
 
 post '/signin' do
   if User.authenticate(params[:username], params[:password]) != false
-    puts("[LOG] Signin POST worked")
-    login_failed = false
+    puts("[LOG] Signin POST worked") if FLASHDEBUG
     redirect '/'
   else
-    login_failed = true
-    puts("[LOG] Signin POST login_failed")
+    puts("[LOG] Signin POST login_failed")  if FLASHDEBUG
     erb :signin
   end
 end
