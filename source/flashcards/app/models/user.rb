@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   has_many :guesses, through: :rounds
   has_many :decks, through: :rounds
   def self.authenticate(username, password)
-    User.where(username: username, password: password)[0]
+   if  User.where(username: username, password: password)[0]
+    # User.where(username: username, password: password)[0]
+    puts("[LOG] User authenticated @login_failed = #{@login_failed}")
+    true
+  else
+    puts("[LOG] User failed @login_failed = #{@login_failed}")
+    false
+  end
   end
 end
