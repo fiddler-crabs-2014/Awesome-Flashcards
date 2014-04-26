@@ -12,7 +12,7 @@ get '/rounds/result/:id' do
 end
 
 get '/rounds/new' do
-  session[:user_id] = User.first.id
+  # session[:user_id] = User.first.id
   @deck = Deck.all
   erb :'rounds/new'
 end
@@ -23,7 +23,10 @@ post '/rounds/quiz' do
   # if the params has a key then we need to create a new round
   if new_round
     deck = Deck.find(params['deck_id'])
+    player = User.find(session['user_id'])
     @round = Round.create(user_id: session['user_id'], deck_id: deck.id, target_questions:5)
+    player.decks << deck
+    player.save
     session[:round_id] = @round.id
   else
     # the else method is has the

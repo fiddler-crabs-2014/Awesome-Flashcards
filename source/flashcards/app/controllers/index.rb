@@ -26,6 +26,7 @@ post '/signup' do
 end
 get '/profile' do
   if session[:user_id]
+    flashlogger("session userid: #{session[:user_id]}")
     erb :profile
   else
     redirect '/'
@@ -38,7 +39,7 @@ post '/signin' do
 end
 
 get /\/(signout|logout)/ do
-  session.clear && flashlogger("logged out")
+  session.clear && flashlogger("logged out #{session[:user_id]}")
   redirect '/signin'
 end
 get /\/(login|signin)/ do
