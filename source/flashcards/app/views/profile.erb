@@ -3,7 +3,7 @@
       <div class="container">
         <h1>Flash Card Ninja!</h1>
         <p>Welcome to your Ninjai Profile!</p>
-        <p><a class="btn btn-primary btn-lg uppercase-spaced" role="button">Play &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg uppercase-spaced" role="button" href="rounds/new">Play &raquo;</a></p>
       </div>
     </div>
 
@@ -19,9 +19,11 @@
           <p><%= User.find(session[:user_id]).email %></p>
         </div>
         <div class="col-md-4">
-          <h2>Session</h2>
-          <p><%= session.inspect %></p>
-          <p><%= session[:user_id] %></p>
+          <h2>Decks</h2>
+          <% User.find(session[:user_id]).decks.each do |deck_obj| %>
+          <p> <%= deck_obj.name %> </p>
+         <!--  <p><%= session[:user_id] %></p> -->
+         <%end%>
 
         </div>
 
