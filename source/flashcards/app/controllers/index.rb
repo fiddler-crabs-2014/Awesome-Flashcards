@@ -36,6 +36,7 @@ post '/signin' do
   auth_redirect('/profile')
 
 end
+
 get /\/(signout|logout)/ do
   session.clear && flashlogger("logged out")
   redirect '/signin'
