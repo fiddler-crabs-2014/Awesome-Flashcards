@@ -1,17 +1,26 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+.buffer-50 {
+  padding-top: 50px;
 }
+
+.buffer-25 {
+  padding-top: 25px;
+}
+
+.uppercase-spaced {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
 th {
   text-align: left;
 }
-.container input {
-        width: 100%;
 
-  clear:both;
+.deck-label {
+  display: inline;
+  margin: 0 30px 0 0;
 }
+
 .question {
 
 }

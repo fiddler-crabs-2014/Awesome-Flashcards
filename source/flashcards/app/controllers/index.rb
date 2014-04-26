@@ -26,3 +26,7 @@ end
 get '/signin' do
   erb :signin
 end
+
+get '/profile' do
+  erb :profile
+end

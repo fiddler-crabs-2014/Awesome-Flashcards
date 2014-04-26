@@ -1,10 +1,12 @@
 <div class="container">
   <h1>Decks for Boss People</h1>
-  <p>Flashie flash flash</p>
-
+  <p>Choose your poison.</p>
+  <div class="buffer-25"></div>
+  <div class="list-group col-xs-6 col-sm-3">
   <% @decks.each do | deck | %>
-    <a href= <%= "\"/decks/#{deck.id}\"" %>> <%= deck.name %> </a><br>
+    <a href= <%= "\"/decks/#{deck.id}\"" %> class="list-group-item"><%= deck.name %></a>
   <% end %>
-
+  </div>
+  <div class="list-group">
 
 </div>
