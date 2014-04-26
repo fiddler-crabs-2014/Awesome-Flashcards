@@ -2,9 +2,9 @@
   <h1>Welcome to Sinatra!</h1>
   <p>Hello, world!</p>
   <form name="input" action="/rounds/quiz" method="post">
-    <select name="deck_name">
+    <select name="deck_id">
       <% @deck.each do |deck| %>
-        <%= "<option value=\"#{deck.name}\">#{deck.name}</option>" %>
+        <%= "<option value=\"#{deck.id}\">#{deck.name}</option>" %>
       <% end %>
     </select>
 

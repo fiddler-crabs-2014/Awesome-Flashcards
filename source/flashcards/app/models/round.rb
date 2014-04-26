@@ -17,7 +17,7 @@ class Round < ActiveRecord::Base
     # puts self.deck_id
     # cards = Deck.where(id: self.deck_id).cards
     # return cards.sample
-
+    # return self.deck.cards.sample
     return Card.all.sample
 
   end

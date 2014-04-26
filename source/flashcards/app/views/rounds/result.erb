@@ -2,13 +2,16 @@
   <h1>Welcome to Sinatra!</h1>
   <p>Quiz DONE!!!</p>
   <p> <%= @round.score %></p>
+  <p><a href='/rounds/new'>Start New Game</a></p>
+  <p><a href='/rounds/view'>View All Rounds</a></p>
 
   <table>
-    <th>
+    <tr>
       <td style="width: 150px;">Question</td>
       <td style="width: 150px;">Answer</td>
       <td style="width: 150px;">Correct?</td>
-    </th>
+    </tr>
+
     <% @round.guesses.each do |guess| %>
       <tr>
         <td><%= guess.card.question %></td>
