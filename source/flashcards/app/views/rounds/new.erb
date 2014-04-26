@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Welcome to Sinatra!</h1>
+  <p>Hello, world!</p>
+  <form name="input" action="/rounds/quiz" method="post">
+    <select name="deck_name">
+      <% @deck.each do |deck| %>
+        <%= "<option value=\"#{deck.name}\">#{deck.name}</option>" %>
+      <% end %>
+    </select>
+
+    <input type="submit" value="Submit">
+  </form>
+
+
+</div>
