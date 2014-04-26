@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   def self.authenticate(username, password)
    if  User.where(username: username, password: password)[0]
-    # User.where(username: username, password: password)[0]
     flashlogger("[LOG] User authenticated ")
     true
   else

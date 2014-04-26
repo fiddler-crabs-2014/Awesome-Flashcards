@@ -1,4 +1,4 @@
 FLASHLOGGER = true
 def flashlogger(message)
-  puts "[LOG] #{message}" if FLASHLOGGER
+  puts "[LOG] #{caller[0]} #{message}" if FLASHLOGGER
 end
