@@ -1,4 +1,4 @@
 class Deck < ActiveRecord::Base
   has_many :cards
-  has_many :round
+  has_many :rounds
 end
