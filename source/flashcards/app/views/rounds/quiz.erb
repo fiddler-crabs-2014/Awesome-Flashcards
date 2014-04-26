@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Welcome to Sinatra!</h1>
+  <p><%= "#{@round.guesses.count +1} of #{@round.target_questions}: #{@card.question}" %></p>
+  <p><%= "Correct = #{@round.correct_count}" %></p>
+  <form name="input" action="/rounds/quiz" method="post">
+    Answer: <input type="text" name="answer" value= <%= "\"#{@card.answer}\"" %>>
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+
+
+
