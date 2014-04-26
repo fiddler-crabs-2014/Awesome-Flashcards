@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
   has_many :rounds
   has_many :guesses, through: :rounds
   has_many :decks, through: :rounds
+  validates :email, uniqueness: true, presence: true
+
   def self.authenticate(username, password)
    if  User.where(username: username, password: password)[0]
     # User.where(username: username, password: password)[0]
-    puts("[LOG] User authenticated @login_failed = #{@login_failed}")
+    flashlogger("[LOG] User authenticated ")
     true
   else
-    puts("[LOG] User failed @login_failed = #{@login_failed}")
+    flashlogger("[LOG] User failed")
     false
   end
   end
