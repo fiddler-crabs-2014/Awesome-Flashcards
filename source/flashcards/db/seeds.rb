@@ -1,7 +1,7 @@
-Deck.transaction do
-  require_relative 'seeds_users'
+
   require_relative 'seeds_cards_and_decks'
   require_relative 'seeds_round'
+  require_relative 'seeds_users'
 
   deck = Deck.create(name: "Math Problems", genre: "Math")
   card = Card.new
@@ -11,4 +11,3 @@ Deck.transaction do
     femail = Faker::Internet.free_email
     User.new(username: fusername, email: femail, password: 'lol' )
   end
-end
