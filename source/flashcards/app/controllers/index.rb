@@ -15,9 +15,7 @@ get '/signup' do
 end
 
 post '/signup' do
-     # @error = "Username or email taken"
-     # erb :signup
-  puts "LOG: #{params[:user]}"
+  flashlogger("[LOG] /signup #{params[:user]}")
   @user = User.create(params[:user])
   if @user
     session[:user_id] = @user.id
@@ -30,21 +28,13 @@ get '/profile' do
   if session[:user_id]
     erb :profile
   else
-    # Look in app/views/index.erb
     redirect '/'
   end
 end
 
 post '/signin' do
   auth_redirect('/profile')
-  # if  User.authenticate(params[:username], params[:password])
-  #   session[:user_id] = User.where(username: params[:username])[0].id
-  #   flashlogger("/signin POST authentication passed ")
-  #   redirect '/profile'
-  # else
-  #   flashlogger("/signin POST authentication failed")
-  #   erb :signin
-  # end
+
 end
 get /\/(signout|logout)/ do
   session.clear && flashlogger("logged out")
