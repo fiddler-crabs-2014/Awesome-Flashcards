@@ -1,18 +1,21 @@
 <div class="container">
   <h1>Welcome to Sinatra!</h1>
   <p>Hello, world!</p>
+  <p><a href='/rounds/new'>Start New Game</a></p>
 
   <table>
-    <th>
-      <td style="width: 150px;">Created At</td>
-      <td style="width: 150px;">Guesses</td>
-      <td style="width: 150px;">Correct</td>
-    </th>
+    <tr>
+      <td style="width: 200px;">Created At</td>
+      <td style="width: 100px;">Guesses</td>
+      <td style="width: 100px;">Correct</td>
+      <td style="width: 100px"> Link</td>
+    </tr>
     <% @rounds.each do |round| %>
       <tr>
-        <td><%= round.created_at %></td>
+        <td><%= round.created_at.to_s(:short) %></td>
         <td><%= round.guesses.count %></td>
         <td><%= "%.2f" % round.score %>%</td>
+        <td><%= "<a href=\"/rounds/result/#{round.id}\">link</a>" %> </td>
       </tr>
     <% end %>
   </table>

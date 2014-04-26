@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
+  <h1><%= "Question: #{@card.question}" %></h1>
   <p><%= "#{@round.guesses.count +1} of #{@round.target_questions}: #{@card.question}" %></p>
   <p><%= "Correct = #{@round.correct_count}" %></p>
   <form name="input" action="/rounds/quiz" method="post">
