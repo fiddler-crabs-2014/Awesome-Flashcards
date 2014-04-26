@@ -12,6 +12,11 @@
 
 }
 
+.inside-nav {
+  float:left;
+  padding-top: 15px;
+  }
+
 th {
   text-align: left;
 }

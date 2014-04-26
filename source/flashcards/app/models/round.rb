@@ -2,6 +2,7 @@ class Round < ActiveRecord::Base
   # Remember to create a migration!
   has_many :guesses
   has_one :deck
+  belongs_to :user
 
   def score
     count_correct = 0
