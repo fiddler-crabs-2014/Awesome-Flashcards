@@ -46,6 +46,7 @@ post '/signin' do
   #   erb :signin
   # end
 end
+
 get /\/(signout|logout)/ do
   session.clear && flashlogger("logged out")
   redirect '/signin'

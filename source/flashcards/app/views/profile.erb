@@ -26,7 +26,16 @@
           <p><%= session[:user_id] %></p>
 
 <!--           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
- -->        </div>
+ -->    </div>
+
+
+         <div class="col-md-4">
+          <h2>Your Decks</h2>
+          <p><%= User.find(session[:user_id]).decks %></p>
+          <!-- <p><%= puts %></p> -->
+
+<!--
+ -->    </div>
       </div>
 
       <hr>
