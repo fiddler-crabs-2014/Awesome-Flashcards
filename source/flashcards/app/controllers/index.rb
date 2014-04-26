@@ -1,7 +1,10 @@
 get '/' do
   if session[:user_id]
+    flashlogger("initial get / passed, userid: #{session[:user_id]} line 3")
     erb :profile
+
   else
+    flashlogger("initial get / no userid, line 7")
     # Look in app/views/index.erb
     erb :index
   end
@@ -33,23 +36,21 @@ get '/profile' do
 end
 
 post '/signin' do
-  if  User.authenticate(params[:username], params[:password])
-    session[:user_id] = User.where(username: params[:username])[0].id
-    flashlogger("/signin POST authentication passed ")
-    redirect '/profile'
-  else
-    flashlogger("/signin POST authentication failed")
-    erb :signin
-  end
+  auth_redirect('/profile')
+  # if  User.authenticate(params[:username], params[:password])
+  #   session[:user_id] = User.where(username: params[:username])[0].id
+  #   flashlogger("/signin POST authentication passed ")
+  #   redirect '/profile'
+  # else
+  #   flashlogger("/signin POST authentication failed")
+  #   erb :signin
+  # end
 end
-get '/logout' do
+get /\/(signout|logout)/ do
   session.clear && flashlogger("logged out")
   redirect '/signin'
 end
-get '/signin' do
+get /\/(login|signin)/ do
   erb :signin
 end
 
-get '/profile' do
-  erb :profile
-end
