@@ -54,6 +54,30 @@ post '/rounds/quiz' do
   end
 end
 
+post '/update/quiz' do
+  @data = current_user
+
+  new_round = params.has_key?('deck_id')
+  @round = Round.find(session[:round_id])
+  @deck = Deck.find(@round.deck_id)
+  prior_guess = Guess.create(card_id: session[:card_id], round_id: session[:round_id], answer: params[:answer])
+
+  if @round.done?
+    redirect 'rounds/result/' + @round.id.to_s
+    erb :'rounds/result'
+  else
+    @card = @round.get_next_card
+    session['card_id'] = @card.id
+
+    @game_data = {
+      deck_name: @deck.name,
+      question: @card.question,
+      questions_remaining: "#{@round.guesses.count +1} of #{@round.target_questions}",
+      correct: "Correct = #{@round.correct_count}"
+    }.to_json
+  end
+end
+
 get '/rounds/result/' do
   @data = current_user
 
