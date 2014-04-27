@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("#signup").click(function(){
+    $(this).addClass("hidden");
+    $("#signup_title").replaceWith("<h3 class='buffer-left-16px'> Sign-up Now! </h3>");
+    $("#signup_form").removeClass("hidden");
+  });
 });

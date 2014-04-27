@@ -1,17 +1,12 @@
 get '/' do
   if session[:user_id]
     flashlogger("initial get / passed, userid: #{session[:user_id]} line 3")
-    erb :profile
-
+    redirect '/profile'
   else
     flashlogger("initial get / no userid, line 7")
     # Look in app/views/index.erb
-    erb :index
+    erb :signin
   end
-end
-
-get '/signup' do
-  erb :signup
 end
 
 post '/signup' do
@@ -21,12 +16,14 @@ post '/signup' do
     session[:user_id] = @user.id
     redirect '/profile'
   else
-    erb :signup
+    erb :signin
   end
 end
+
 get '/profile' do
   if session[:user_id]
     flashlogger("session userid: #{session[:user_id]}")
+    @data = current_user
     erb :profile
   else
     redirect '/'
@@ -35,7 +32,6 @@ end
 
 post '/signin' do
   auth_redirect('/profile')
-
 end
 
 get /\/(signout|logout)/ do
@@ -44,5 +40,12 @@ get /\/(signout|logout)/ do
 end
 get /\/(login|signin)/ do
   erb :signin
+end
+
+def current_user
+  @user = User.find(session[:user_id])
+  @username = @user.username
+  @email = @user.email
+  @decks = @user.decks
 end
 

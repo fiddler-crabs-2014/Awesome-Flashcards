@@ -1,7 +1,10 @@
 .buffer-50 {
-  padding-top: 50px;
+  padding-top: 55px;
 }
 
+.buffer-left-16px{
+  padding-left: 16px;
+}
 .buffer-25 {
   padding-top: 25px;
 }

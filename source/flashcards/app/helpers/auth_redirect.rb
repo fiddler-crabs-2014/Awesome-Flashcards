@@ -9,3 +9,6 @@ def auth_redirect(redir = nil)
     redirect '/signin'
   end
 end
+
+
+
