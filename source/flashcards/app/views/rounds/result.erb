@@ -1,11 +1,19 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Quiz DONE!!!</p>
-  <p> <%= @round.score %></p>
-  <p><a href='/rounds/new'>Start New Game</a></p>
-  <p><a href='/rounds/view'>View All Rounds</a></p>
+<div class="container jumbotron">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <p class="navbar-right">
+          logged in as <%= @username %>
+          <a class="btn btn-primary btn-default buffer-7" role="button" href="/logout">Logout</a>
+        </p>
+      </div>
+    </div>
+  <h1>Awesome Flashcards!</h1>
+  <h4><span class="glyphicon glyphicon-ok"></span>  Quiz DONE!!!</h4>
+  <h5> <%= @round.score %></h5>
+  <p class="btn btn-default"><a href='/rounds/new'>Start New Game</a></p><br><br>
+  <p class="btn btn-default"><a href='/rounds/view'>View All Rounds</a></p><br><br>
 
-  <table>
+  <table class="table table-striped">
     <tr>
       <td style="width: 150px;">Question</td>
       <td style="width: 150px;">Answer</td>

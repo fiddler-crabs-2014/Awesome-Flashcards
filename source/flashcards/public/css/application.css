@@ -1,7 +1,10 @@
 .buffer-50 {
-  padding-top: 50px;
+  padding-top: 55px;
 }
 
+.buffer-left-16px{
+  padding-left: 16px;
+}
 .buffer-25 {
   padding-top: 25px;
 }
@@ -10,6 +13,14 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 
+}
+
+.buffer-7 {
+  margin-top:7px;
+}
+
+.side-buffer-6 {
+  margin: 0 6px;
 }
 
 .inside-nav {

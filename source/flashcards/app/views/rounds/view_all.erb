@@ -1,6 +1,14 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<div class="container jumbotron">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <p class="navbar-right">
+          logged in as <%= @username %>
+          <a class="btn btn-primary btn-default buffer-7" role="button" href="/logout">Logout</a>
+        </p>
+      </div>
+    </div>
+  <h1>Awesome Flashcards!</h1>
+  <p>View all:</p>
   <p><a href='/rounds/new'>Start New Game</a></p>
 
   <table>

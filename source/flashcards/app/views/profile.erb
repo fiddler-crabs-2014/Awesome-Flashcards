@@ -1,6 +1,11 @@
 
     <div class="jumbotron">
       <div class="container">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+              <p class=" navbar-right">Signed in as <%= @username %>  <a class="btn btn-primary btn-default buffer-7" role="button" href="/logout">Logout</a></p>
+            </div>
+          </div>
         <h1>Flash Card Ninja!</h1>
         <p>Welcome to your Ninjai Profile!</p>
         <p><a class="btn btn-primary btn-lg uppercase-spaced" role="button" href="rounds/new">Play &raquo;</a></p>
@@ -8,25 +13,24 @@
     </div>
 
     <div class="container">
-      <!-- row of columns -->
+
       <div class="row">
         <div class="col-md-4">
           <h2>Username</h2>
-          <p><%= User.find(session[:user_id]).username   %></p>
+          <p><%= @username %></p>
         </div>
+
         <div class="col-md-4">
           <h2>Email</h2>
-          <p><%= User.find(session[:user_id]).email %></p>
+          <p><%= @email %></p>
         </div>
+
         <div class="col-md-4">
           <h2>Decks</h2>
-          <% User.find(session[:user_id]).decks.each do |deck_obj| %>
-          <p> <%= deck_obj.name %> </p>
-         <!--  <p><%= session[:user_id] %></p> -->
-         <%end%>
-
+          <% @decks.each do |deck_obj| %>
+            <p> <%= deck_obj.name %> </p>
+          <%end%>
         </div>
-
       </div>
 
       <hr>
