@@ -15,12 +15,11 @@ class Round < ActiveRecord::Base
   end
 
   def get_next_card
-    # puts self.deck_id
-    # cards = Deck.where(id: self.deck_id).cards
-    # return cards.sample
-    # return self.deck.cards.sample
-    return Card.all.sample
-
+    puts "**********#{self.deck_id}*************"
+    puts "**********#{self.deck_id}*************"
+    puts "**********#{self.deck_id}*************"
+    cards = Deck.find(self.deck_id).cards
+    return cards.sample
   end
 
   def done?

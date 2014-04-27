@@ -22,7 +22,7 @@
       <tr>
         <td><%= round.created_at.to_s(:short) %></td>
         <td><%= round.guesses.count %></td>
-        <td><%= "%.2f" % round.score %>%</td>
+        <td><%= (("%.2f" % round.score).to_f * 100).round %>%</td>
         <td><%= "<a href=\"/rounds/result/#{round.id}\">link</a>" %> </td>
       </tr>
     <% end %>

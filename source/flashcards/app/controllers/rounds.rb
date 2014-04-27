@@ -1,14 +1,14 @@
 
 get '/rounds/view' do
   # Look in app/views/index.erb
-  @rounds = Round.all
   @data = current_user
+  @rounds = Round.where(user_id: @user.id)
+
   erb :'rounds/view_all'
 end
 
 get '/rounds/result/:id' do
   # Look in app/views/index.erb
-
   @round = Round.find(params[:id])
   @data = current_user
   erb :'rounds/result'
@@ -25,6 +25,9 @@ post '/rounds/quiz' do
 
   @data = current_user
   new_round = params.has_key?('deck_id')
+  puts "*"*70
+  puts new_round
+  puts "*"*70
   # if the params has a key then we need to create a new round
   if new_round
     deck = Deck.find(params['deck_id'])
