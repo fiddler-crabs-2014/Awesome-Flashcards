@@ -12,21 +12,20 @@
       <div class="row">
         <div class="col-md-4">
           <h2>Username</h2>
-          <p><%= User.find(session[:user_id]).username   %></p>
+          <p><%= @username %></p>
         </div>
+
         <div class="col-md-4">
           <h2>Email</h2>
-          <p><%= User.find(session[:user_id]).email %></p>
+          <p><%= @email %></p>
         </div>
+
         <div class="col-md-4">
           <h2>Decks</h2>
-          <% User.find(session[:user_id]).decks.each do |deck_obj| %>
-          <p> <%= deck_obj.name %> </p>
-         <!--  <p><%= session[:user_id] %></p> -->
-         <%end%>
-
+          <% @decks.each do |deck_obj| %>
+            <p> <%= deck_obj.name %> </p>
+          <%end%>
         </div>
-
       </div>
 
       <hr>
