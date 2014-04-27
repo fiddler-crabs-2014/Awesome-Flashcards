@@ -1,5 +1,4 @@
 class Round < ActiveRecord::Base
-  # Remember to create a migration!
   has_many :guesses
   has_one :deck
   belongs_to :user
@@ -15,9 +14,6 @@ class Round < ActiveRecord::Base
   end
 
   def get_next_card
-    puts "**********#{self.deck_id}*************"
-    puts "**********#{self.deck_id}*************"
-    puts "**********#{self.deck_id}*************"
     cards = Deck.find(self.deck_id).cards
     return cards.sample
   end
@@ -27,15 +23,7 @@ class Round < ActiveRecord::Base
   end
 
   def correct_count
-    # This could be optimzed by an SQL statement
-    correct_count = 0
-
-    self.guesses.each do |guess|
-      correct_count += 1 if guess.correct?
-    end
-
-    return correct_count
-
+    self.guesses.select(&:correct?).count
   end
 
 end
