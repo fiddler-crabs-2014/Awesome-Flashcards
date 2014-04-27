@@ -11,7 +11,7 @@
   <p><%= "#{@round.guesses.count +1} of #{@round.target_questions}: #{@card.question}" %></p>
   <p><%= "Correct = #{@round.correct_count}" %></p>
   <form name="input" action="/rounds/quiz" method="post">
-    Answer: <input type="text" name="answer" value= <%= "\"#{@card.answer}\"" %>>
+    Answer: <input type="text" name="answer">
     <input type="submit" value="Submit" class="btn btn-default side-buffer-6">
   </form>
 

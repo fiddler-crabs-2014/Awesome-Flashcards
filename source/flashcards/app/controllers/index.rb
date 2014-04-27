@@ -23,6 +23,7 @@ end
 get '/profile' do
   if session[:user_id]
     flashlogger("session userid: #{session[:user_id]}")
+    @deck = Deck.all
     @data = current_user
     erb :profile
   else
