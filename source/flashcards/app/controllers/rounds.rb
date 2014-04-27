@@ -1,6 +1,8 @@
+
 get '/rounds/view' do
   # Look in app/views/index.erb
   @rounds = Round.all
+  @data = current_user
   erb :'rounds/view_all'
 end
 
@@ -8,17 +10,20 @@ get '/rounds/result/:id' do
   # Look in app/views/index.erb
 
   @round = Round.find(params[:id])
+  @data = current_user
   erb :'rounds/result'
 end
 
 get '/rounds/new' do
   # session[:user_id] = User.first.id
   @deck = Deck.all
+  @data = current_user
   erb :'rounds/new'
 end
 
 post '/rounds/quiz' do
 
+  @data = current_user
   new_round = params.has_key?('deck_id')
   # if the params has a key then we need to create a new round
   if new_round
@@ -48,7 +53,20 @@ post '/rounds/quiz' do
 end
 
 get '/rounds/result/' do
+  @data = current_user
   # Look in app/views/index.erb
   @round = Round.all
   erb :'rounds/view'
 end
+
+def current_user
+  @user = User.find(session[:user_id])
+  if @user
+    @username = @user.username
+    @email = @user.email
+    @decks = @user.decks
+  else
+    redirect '/signin'
+  end
+end
+
