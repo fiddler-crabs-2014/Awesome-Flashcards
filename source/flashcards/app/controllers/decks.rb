@@ -11,14 +11,3 @@ get '/decks/:id' do
   end
   erb :deck
 end
-
-post '/deck' do
-
-end
-
-get '/card' do
-end
-
-post '/card' do
-end
-

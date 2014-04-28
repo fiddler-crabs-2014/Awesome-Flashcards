@@ -9,7 +9,7 @@
     </div>
   <h1>Awesome Flashcards!</h1>
   <h4><span class="glyphicon glyphicon-ok"></span>  Quiz DONE!!!</h4>
-  <h5> <%= @round.score %></h5>
+  <h4> <%= (@round.score.to_f * 100).round.to_s + "%" %> correct.</h4>
   <p class="btn btn-default"><a href='/rounds/new'>Start New Game</a></p><br><br>
   <p class="btn btn-default"><a href='/rounds/view'>View All Rounds</a></p><br><br>
 

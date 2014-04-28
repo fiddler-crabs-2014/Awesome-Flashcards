@@ -7,11 +7,13 @@
         </p>
       </div>
     </div>
-  <h1><%= "Question: #{@card.question}" %></h1>
-  <p><%= "#{@round.guesses.count +1} of #{@round.target_questions}: #{@card.question}" %></p>
-  <p><%= "Correct = #{@round.correct_count}" %></p>
-  <form name="input" action="/rounds/quiz" method="post">
-    Answer: <input type="text" name="answer">
+  <h2 id="quiz_deck_name"> <%= @deck.name %> </h2>
+  <h1 id="quiz_question"><%= @card.question %></h1>
+  <p id="questions_remaining"><%= "#{@round.guesses.count +1} of #{@round.target_questions}" %></p>
+  <p id="questions_correct"><%= "Correct = #{@round.correct_count}" %></p>
+
+  <form id="answer_form" name="input" action="/rounds/quiz" method="post">
+    Answer: <input id="answer" type="text" name="answer">
     <input type="submit" value="Submit" class="btn btn-default side-buffer-6">
   </form>
 
