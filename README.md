@@ -1,7 +1,10 @@
 #Awesome Ninja Mega Flashcard app coolest
 
 ## Winning and winning and winning and winning
+DBC Phase 2 week 1
 
+ A flashcard app. Users can play flashcards .
+ 
 
 ## Authors
 * @justinphelps
